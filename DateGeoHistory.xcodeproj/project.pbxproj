@@ -7,23 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		270BCB60A3A220F8E0D12D85 /* Pods_DateGeoHistory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 440DBA8C00CB0336C3BB9906 /* Pods_DateGeoHistory.framework */; };
 		B8129CDA28A3F21200347C70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8129CD928A3F21200347C70 /* AppDelegate.swift */; };
 		B8129CDC28A3F21200347C70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8129CDB28A3F21200347C70 /* SceneDelegate.swift */; };
-		B8129CDE28A3F21200347C70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8129CDD28A3F21200347C70 /* ViewController.swift */; };
-		B8129CE128A3F21200347C70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8129CDF28A3F21200347C70 /* Main.storyboard */; };
+		B8129CDE28A3F21200347C70 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8129CDD28A3F21200347C70 /* HomeViewController.swift */; };
 		B8129CE328A3F21200347C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8129CE228A3F21200347C70 /* Assets.xcassets */; };
 		B8129CE628A3F21200347C70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8129CE428A3F21200347C70 /* LaunchScreen.storyboard */; };
+		B82134F528A8E12E00652124 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82134F428A8E12E00652124 /* DateCell.swift */; };
+		B82134FA28A8E24B00652124 /* AddScheduleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82134F928A8E24B00652124 /* AddScheduleController.swift */; };
+		B82134FD28A8E91500652124 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82134FC28A8E91500652124 /* Schedule.swift */; };
+		B821350028A959C900652124 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82134FF28A959C900652124 /* Date+.swift */; };
+		B821350328A965EA00652124 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B821350228A965EA00652124 /* String+.swift */; };
+		B89667B128AD1D44005688D3 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89667B028AD1D44005688D3 /* UIView+.swift */; };
+		B89667B528AD271B005688D3 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89667B428AD271B005688D3 /* UITextField+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16206DA1EAA2570822B053C1 /* Pods-DateGeoHistory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DateGeoHistory.release.xcconfig"; path = "Target Support Files/Pods-DateGeoHistory/Pods-DateGeoHistory.release.xcconfig"; sourceTree = "<group>"; };
+		440DBA8C00CB0336C3BB9906 /* Pods_DateGeoHistory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DateGeoHistory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		552669AD1248EF956377F2E0 /* Pods-DateGeoHistory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DateGeoHistory.debug.xcconfig"; path = "Target Support Files/Pods-DateGeoHistory/Pods-DateGeoHistory.debug.xcconfig"; sourceTree = "<group>"; };
 		B8129CD628A3F21200347C70 /* DateGeoHistory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DateGeoHistory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8129CD928A3F21200347C70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8129CDB28A3F21200347C70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B8129CDD28A3F21200347C70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B8129CE028A3F21200347C70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B8129CDD28A3F21200347C70 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B8129CE228A3F21200347C70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8129CE528A3F21200347C70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8129CE728A3F21200347C70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B82134F428A8E12E00652124 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
+		B82134F928A8E24B00652124 /* AddScheduleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScheduleController.swift; sourceTree = "<group>"; };
+		B82134FC28A8E91500652124 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		B82134FF28A959C900652124 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		B821350228A965EA00652124 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		B89667B028AD1D44005688D3 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		B89667B428AD271B005688D3 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +47,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				270BCB60A3A220F8E0D12D85 /* Pods_DateGeoHistory.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		702939BC40E4C7D3643FEBBE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				440DBA8C00CB0336C3BB9906 /* Pods_DateGeoHistory.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B8129CCD28A3F21200347C70 = {
 			isa = PBXGroup;
 			children = (
 				B8129CD828A3F21200347C70 /* DateGeoHistory */,
 				B8129CD728A3F21200347C70 /* Products */,
+				E029EE3BC5D4AB4DC33728B2 /* Pods */,
+				702939BC40E4C7D3643FEBBE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +85,68 @@
 			children = (
 				B8129CD928A3F21200347C70 /* AppDelegate.swift */,
 				B8129CDB28A3F21200347C70 /* SceneDelegate.swift */,
-				B8129CDD28A3F21200347C70 /* ViewController.swift */,
-				B8129CDF28A3F21200347C70 /* Main.storyboard */,
+				B82134F728A8E13F00652124 /* Scene */,
+				B821350128A959D000652124 /* Extensions */,
+				B8129CDD28A3F21200347C70 /* HomeViewController.swift */,
 				B8129CE228A3F21200347C70 /* Assets.xcassets */,
 				B8129CE428A3F21200347C70 /* LaunchScreen.storyboard */,
 				B8129CE728A3F21200347C70 /* Info.plist */,
 			);
 			path = DateGeoHistory;
+			sourceTree = "<group>";
+		};
+		B82134F628A8E13200652124 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B82134F428A8E12E00652124 /* DateCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B82134F728A8E13F00652124 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				B82134FB28A8E8F200652124 /* AddDate */,
+				B82134F628A8E13200652124 /* Cells */,
+				B82134FE28A8E91A00652124 /* Models */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		B82134FB28A8E8F200652124 /* AddDate */ = {
+			isa = PBXGroup;
+			children = (
+				B82134F928A8E24B00652124 /* AddScheduleController.swift */,
+			);
+			path = AddDate;
+			sourceTree = "<group>";
+		};
+		B82134FE28A8E91A00652124 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B82134FC28A8E91500652124 /* Schedule.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B821350128A959D000652124 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B82134FF28A959C900652124 /* Date+.swift */,
+				B821350228A965EA00652124 /* String+.swift */,
+				B89667B028AD1D44005688D3 /* UIView+.swift */,
+				B89667B428AD271B005688D3 /* UITextField+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E029EE3BC5D4AB4DC33728B2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				552669AD1248EF956377F2E0 /* Pods-DateGeoHistory.debug.xcconfig */,
+				16206DA1EAA2570822B053C1 /* Pods-DateGeoHistory.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +156,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B8129CEA28A3F21200347C70 /* Build configuration list for PBXNativeTarget "DateGeoHistory" */;
 			buildPhases = (
+				CCDACA1780017533EBCD1497 /* [CP] Check Pods Manifest.lock */,
 				B8129CD228A3F21200347C70 /* Sources */,
 				B8129CD328A3F21200347C70 /* Frameworks */,
 				B8129CD428A3F21200347C70 /* Resources */,
+				8D354053AC0606484262164C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,34 +211,74 @@
 			files = (
 				B8129CE628A3F21200347C70 /* LaunchScreen.storyboard in Resources */,
 				B8129CE328A3F21200347C70 /* Assets.xcassets in Resources */,
-				B8129CE128A3F21200347C70 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8D354053AC0606484262164C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DateGeoHistory/Pods-DateGeoHistory-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DateGeoHistory/Pods-DateGeoHistory-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DateGeoHistory/Pods-DateGeoHistory-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCDACA1780017533EBCD1497 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DateGeoHistory-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B8129CD228A3F21200347C70 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8129CDE28A3F21200347C70 /* ViewController.swift in Sources */,
+				B821350028A959C900652124 /* Date+.swift in Sources */,
+				B89667B528AD271B005688D3 /* UITextField+.swift in Sources */,
+				B82134FA28A8E24B00652124 /* AddScheduleController.swift in Sources */,
+				B821350328A965EA00652124 /* String+.swift in Sources */,
+				B82134FD28A8E91500652124 /* Schedule.swift in Sources */,
+				B8129CDE28A3F21200347C70 /* HomeViewController.swift in Sources */,
 				B8129CDA28A3F21200347C70 /* AppDelegate.swift in Sources */,
+				B89667B128AD1D44005688D3 /* UIView+.swift in Sources */,
 				B8129CDC28A3F21200347C70 /* SceneDelegate.swift in Sources */,
+				B82134F528A8E12E00652124 /* DateCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B8129CDF28A3F21200347C70 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B8129CE028A3F21200347C70 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B8129CE428A3F21200347C70 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -202,6 +326,8 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -262,6 +388,8 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -282,17 +410,18 @@
 		};
 		B8129CEB28A3F21200347C70 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 552669AD1248EF956377F2E0 /* Pods-DateGeoHistory.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 35C3S834CG;
+				"EXCLUDED_ARCHS[sdk=*]" = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DateGeoHistory/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -310,17 +439,18 @@
 		};
 		B8129CEC28A3F21200347C70 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16206DA1EAA2570822B053C1 /* Pods-DateGeoHistory.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 35C3S834CG;
+				"EXCLUDED_ARCHS[sdk=*]" = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DateGeoHistory/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
