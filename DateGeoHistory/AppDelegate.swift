@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,7 +14,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let config = Realm.Configuration (
+                             
+        // 중요! 스키마버전 셋팅
+        // 이전 버전보다 반드시 커야함
+        schemaVersion: 1,
+
+        migrationBlock: { migration, oldSchemaVersion in
+             
+            // 셋팅한 스키마 버전보다 낮을경우 해당 코드 호출
+            if (oldSchemaVersion < 1) {
+                 
+                // 신규 업데이트 내용 추가
+                migration.enumerateObjects(ofType: Schedule.className()) { // 추가할 컬럼 클래스
+                    oldObject, newObject in
+                    newObject!["title"] = String() // 추가한 컬럼값 = 자료형()
+                }
+            }
+        })
+                 
+        Realm.Configuration.defaultConfiguration = config
+        
         return true
     }
 

@@ -6,13 +6,17 @@
 //
 
 import UIKit
+import RealmSwift
 import SnapKit
 import FSCalendar
+import SwiftUI
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, commonViewControllerDelegate {
     
     private var calendarHeight: CGFloat = 0
     private var detailHeight: CGFloat = 0
+    private var scheduleList: [Schedule] = []
+    private var selectedSchedule: [Schedule] = []
     
     private var lastContentOffset: CGFloat = 0
     
@@ -95,11 +99,30 @@ class HomeViewController: UIViewController {
         return button
     }()
     
+    private lazy var todayScheduleCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        
+        collectionView.isPagingEnabled = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
+
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        collectionView.register(ScheduleCell.self, forCellWithReuseIdentifier: "ScheduleCell")
+        
+        return collectionView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
+        getAllSchedule()
     }
-    
     
     @objc func resize(){
         if calendar.scope == .month {
@@ -113,10 +136,18 @@ class HomeViewController: UIViewController {
     
     @objc func setToday(){
         calendar.select(calendar.today)
+        getSelectedSchedule()
     }
     
     @objc func addSchedule(){
-        self.present(AddScheduleController(strDate: selectedDate).self, animated: true)
+        let addVC = AddScheduleController(strDate: selectedDate)
+        addVC.delegate = self
+        self.present(addVC.self, animated: true)
+    }
+    
+    public func refreshView(){
+        getAllSchedule()
+        calendar.reloadData()
     }
 }
 
@@ -126,7 +157,7 @@ private extension HomeViewController {
         
         calendarHeight = ((view.bounds.height) / 100) * 50
         
-        [ calendarTitle, todayButton, calendar, addEventButton
+        [ calendarTitle, todayButton, calendar, addEventButton, todayScheduleCollectionView
           ].forEach {
             view.addSubview($0)
         }
@@ -153,6 +184,13 @@ private extension HomeViewController {
             $0.top.equalTo(calendar.snp.bottom).offset(5)
             $0.trailing.equalToSuperview().inset(25)
         }
+        
+        todayScheduleCollectionView.snp.makeConstraints {
+            $0.top.equalTo(addEventButton.snp.bottom).offset(10)
+            $0.leading.equalToSuperview().inset(25)
+            $0.trailing.equalToSuperview().inset(25)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
+        }
     }
 }
 
@@ -160,16 +198,8 @@ extension HomeViewController: FSCalendarDataSource, FSCalendarDelegate {
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         
-        // monthPosition.rawValue
-        // 0 이면 저번 달
-        // 1 이면 이번 달
-        // 2 이면 다음 달
-        if monthPosition.rawValue == 0 {
-            calendar.setCurrentPage(date, animated: true)
-        }
-        else if monthPosition.rawValue == 2 {
-            calendar.setCurrentPage(date, animated: true)
-        }
+        getSelectedSchedule()
+        todayScheduleCollectionView.reloadData()
     }
     
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
@@ -180,5 +210,85 @@ extension HomeViewController: FSCalendarDataSource, FSCalendarDelegate {
         UIView.animate(withDuration: 1) {
             self.view.layoutIfNeeded()
         }
+    }
+    
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        for schedule in scheduleList {
+            if (schedule.date == date){
+                return 1
+            }
+        }
+        
+        return 0
+    }
+    
+    func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
+        getAllSchedule()
+    }
+    
+    func getAllSchedule(){
+        let date = calendar.currentPage.getFirstDayOfMonth()
+        
+        let realm = try! Realm()
+        let scheduleList = realm.objects(Schedule.self).where {
+            $0.date >= date.getPrevMonth()
+            && $0.date <= date.getNextMonth()
+        }
+        
+        self.scheduleList = Array(scheduleList)
+    }
+    
+    func getSelectedSchedule(){
+        let date = calendar.selectedDate!
+        
+        let realm = try! Realm()
+        let scheduleList = realm.objects(Schedule.self).where {
+            $0.date == date
+        }
+        
+        self.selectedSchedule = Array(scheduleList)
+    }
+}
+
+
+extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, OpenRegisteredScheduleDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return selectedSchedule.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ScheduleCell", for: indexPath) as? ScheduleCell else { return UICollectionViewCell() }
+        
+        cell.initCell(schedule: selectedSchedule[indexPath.row])
+        cell.delegate = self
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        CGSize(width: collectionView.frame.width - 40, height: collectionView.frame.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        20
+    }
+    
+    func openSchedule(schedule: Schedule) {
+        let date = calendar.selectedDate!.getStrDate()
+        let addVC = EditScheduleController(strDate: date, schedule: schedule)
+        addVC.delegate = self
+        self.present(addVC, animated: true)
+    }
+    
+    func dismiss(date: Date) {
+        calendar.select(date)
+        getSelectedSchedule()
+        todayScheduleCollectionView.reloadData()
+        calendar.reloadData()
     }
 }

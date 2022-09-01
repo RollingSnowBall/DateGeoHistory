@@ -1,17 +1,18 @@
 //
-//  AddScheduleController.swift
+//  EditScheduleController.swift
 //  DateGeoHistory
 //
-//  Created by JUNO on 2022/08/14.
+//  Created by JUNO on 2022/08/31.
 //
 
 import SnapKit
 import RealmSwift
 import UIKit
 
-class AddScheduleController: UIViewController {
+class EditScheduleController: UIViewController {
     
     private var date: Date?
+    private var schedule: Schedule?
     weak var delegate: commonViewControllerDelegate?
     
     private lazy var titleLabel: UILabel = {
@@ -44,7 +45,6 @@ class AddScheduleController: UIViewController {
         
         view.font = .systemFont(ofSize: 16)
         view.text = textViewPlaceHolder
-        view.textColor = .lightGray
         
         view.delegate = self
         
@@ -89,9 +89,12 @@ class AddScheduleController: UIViewController {
         setupLayout()
     }
     
-    init(strDate: String){
+    init(strDate: String, schedule: Schedule){
         super.init(nibName: nil, bundle: nil)
         self.date = strDate.getDate()
+        self.schedule = schedule
+        self.titleTextField.text = schedule.title
+        self.memoTextView.text = schedule.memo
     }
     
     required init?(coder: NSCoder) {
@@ -120,10 +123,10 @@ class AddScheduleController: UIViewController {
         
         let title = titleTextField.text!
         let memo = memoTextView.text!
-        let schedule = Schedule(date: date!, title: title ,memo: memo)
         
         try! realm.write {
-            realm.add(schedule)
+            self.schedule!.title = title
+            self.schedule!.memo = memo
         }
         
         dismissView()
@@ -131,7 +134,7 @@ class AddScheduleController: UIViewController {
     }
 }
 
-private extension AddScheduleController {
+private extension EditScheduleController {
     
     func setupLayout(){
         [ titleLabel, titleTextField, memoTextView, closeButton ,saveButton
@@ -174,7 +177,7 @@ private extension AddScheduleController {
     }
 }
 
-extension AddScheduleController: UITextViewDelegate, UITableViewDataSource {
+extension EditScheduleController: UITextViewDelegate, UITableViewDataSource {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if memoTextView.text == textViewPlaceHolder {
